@@ -16,5 +16,5 @@ export const otpSchema = Yup.object(
     {
     otp: Yup.string()
         .required("OTP is required")
-        .length(4, "OTP must be of 6-digits")
+        .length(4, "OTP must be of 4-digits")
 });

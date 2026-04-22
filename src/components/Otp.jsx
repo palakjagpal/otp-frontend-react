@@ -99,7 +99,9 @@ function Otp(){
     return(
         <>  
             <div className="main">
-                <h1>OTP Verification</h1>
+                <h1>Verify <br></br> Phone Number</h1>
+                <hr></hr>
+                <br></br>
                 <form onSubmit={formik.handleSubmit}>
                     <div className="phone">
                         
@@ -110,24 +112,26 @@ function Otp(){
                             onChange={(value) => formik.setFieldValue("phone", value)}
                             onBlur={() => formik.setFieldTouched("phone", true)}
                             className="phone-input"
+                            
                         />
                         {
                             formik.touched.phone && formik.errors.phone &&
-                            <p>{formik.errors.phone}</p>
+                            <p className="error">{formik.errors.phone}</p>
                         }
                     </div>
 
                     {
                         otpsent &&
                         <div className="otp">
-                            <p>Enter OTP below</p>
+                            <p className="otp-heading">Enter OTP below</p>
 
                             <OTPInput value={formik.values.otp} 
                             onChange={(otp) => formik.setFieldValue("otp",otp)}
                             numInputs={4}
                             isInputNum={true}
                             shouldAutoFocus={true}
-                            className="otp-input"
+                            containerStyle="otp-container"
+                            inputStyle="otp-box"
                             renderInput={(props) =>(
                                 <input {...props} onBlur={() => formik.setFieldTouched("otp",true)} />
                             )
@@ -137,7 +141,7 @@ function Otp(){
 
                             {
                                 formik.touched.otp && formik.errors.otp &&
-                                <p>{formik.errors.otp}</p>
+                                <p className="error">{formik.errors.otp}</p>
                             }
                         </div>
                     }
